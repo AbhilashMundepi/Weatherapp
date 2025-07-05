@@ -1,0 +1,55 @@
+/* SearchBox.css */
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.search-form {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.search-input {
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.search-button {
+  background-color: #1976d2;
+  font-weight: bold;
+  padding: 0.6rem;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #115293;
+}
+
+.error-message {
+  color: #d32f2f;
+  font-weight: bold;
+  text-align: center;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 500px) {
+  .search-form {
+    padding: 0 1rem;
+  }
+}

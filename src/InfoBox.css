@@ -1,0 +1,64 @@
+/* InfoBox.css */
+
+.info-box {
+  display: flex;
+ justify-content: center;
+  padding: 1.5rem;
+}
+
+.weather-card {
+  max-width: 100%;
+  width: 100%;
+  max-width: 380px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.weather-card:hover {
+  transform: translateY(-5px);
+}
+
+.city-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.weather-icon {
+  font-size: 1.8rem;
+  color: #f39c12;
+}
+
+.weather-details {
+  margin-top: 0.75rem;
+  text-align: left;
+  color: #444;
+}
+
+.weather-details p {
+  margin: 0.4rem 0;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 500px) {
+  .info-box {
+    padding: 1rem;
+  }
+
+  .weather-card {
+    max-width: 100%;
+  }
+
+  .city-heading {
+    font-size: 1.2rem;
+  }
+
+  .weather-details p {
+    font-size: 0.9rem;
+  }
+}

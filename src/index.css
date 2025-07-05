@@ -1,0 +1,156 @@
+/* index.css */
+
+/* --- Default Vite Boilerplate (Adjusted) --- */
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* --- New CSS Variables for Theming --- */
+  --text-color-light: #f8f8f8; /* For text on dark backgrounds */
+  --text-color-dark: #333;    /* For text on light backgrounds */
+  --card-background: rgba(255, 255, 255, 0.88); /* Slightly transparent white for cards */
+  --card-background-dark: rgba(0, 0, 0, 0.7); /* Slightly transparent dark for potential dark mode cards */
+  --accent-color: #007bff;   /* Primary accent blue */
+  --accent-color-hover: #0056b3; /* Darker blue for hover states */
+  --warning-color: #ffc107;  /* Yellow for warnings/hot temps */
+  --error-color: #dc3545;    /* Red for errors */
+  --border-radius: 12px;     /* Standard border radius */
+  --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Soft shadow for cards */
+
+  /* Default Vite colors - these will mostly be overridden by component styles
+     or dynamic backgrounds, but kept for general fallback. */
+  color-scheme: light dark;
+  color: var(--text-color-dark); /* Default body text color, will be overridden */
+  background-color: #242424; /* Default dark background for body, will be overridden by #root */
+}
+
+/* Basic Reset & Box-Sizing (Vite default is good, but ensuring full height) */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Global Body Styling */
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;     /* Center vertically */
+  min-width: 320px;
+  min-height: 100vh; /* Ensure body takes full viewport height */
+  overflow: hidden; /* Prevent scrollbars if #root handles sizing */
+}
+
+/* --- Main App Container (#root) Styling --- */
+/* This is where the dynamic background classes will be applied by JavaScript */
+#root {
+  width: 100%;
+  height: 100vh; /* Occupy full viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Default background, will be overridden by JS.
+     Choose a neutral or appealing default. */
+  background: linear-gradient(to bottom right, #2c3e50, #4ca1af); /* A nice default */
+  transition: background 1s ease-in-out; /* Smooth transition for background changes */
+}
+
+
+/* --- Dynamic Background Classes (Applied by JS to #root) --- */
+.background-clear {
+    background: linear-gradient(to top, #87CEEB, #ADD8E6); /* Light blue sky */
+}
+
+.background-clouds {
+    background: linear-gradient(to top, #A9A9A9, #708090); /* Gray, cloudy sky */
+}
+
+.background-rain {
+    background: linear-gradient(to top, #4682B4, #5F9EA0);   /* Moody blue-gray */
+}
+
+.background-thunderstorm {
+    background: linear-gradient(to top, #36454F, #2F4F4F); /* Dark, ominous */
+}
+
+.background-snow {
+    background: linear-gradient(to top, #E0FFFF, #ADD8E6);  /* Light frosty blues */
+}
+
+.background-mist,
+.background-haze,
+.background-fog { /* Group similar atmospheric conditions */
+    background: linear-gradient(to top, #C0C0C0, #D3D3D3);   /* Light hazy gray */
+}
+
+.background-night-clear {
+    background: linear-gradient(to top, #191970, #483D8B); /* Dark night sky */
+}
+
+.background-night-clouds {
+    background: linear-gradient(to top, #36454F, #2F4F4F);
+}
+
+.background-hot {
+    background: linear-gradient(to top, #FF8C00, #FFD700); /* Orange to Gold for very hot */
+}
+/* Add more as needed based on OpenWeatherMap's 'main' weather conditions */
+
+
+/* --- Original Vite Link/Button Styles (Adjusted for consistency) --- */
+a {
+  font-weight: 500;
+  color: var(--accent-color);
+  text-decoration: inherit;
+}
+a:hover {
+  color: var(--accent-color-hover);
+}
+
+/* Button styles are better defined per component (e.g., in SearchBox.css)
+   but keeping a generic one for any unstyled buttons. */
+button {
+  border-radius: var(--border-radius);
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a; /* Dark default for dark mode */
+  cursor: pointer;
+  transition: border-color 0.25s, background-color 0.25s;
+  color: var(--text-color-light); /* Ensure button text is visible */
+}
+button:hover {
+  border-color: var(--accent-color);
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* --- Media Queries (Vite defaults for light mode preference) --- */
+@media (prefers-color-scheme: light) {
+  :root {
+    /* Adjust root variables for light mode if you want a full light/dark toggle */
+    /* For a weather app, dynamic backgrounds often make light/dark scheme less critical for the body */
+    color: var(--text-color-dark); /* Text on light background */
+    background-color: #ffffff; /* Light background for default */
+  }
+  a:hover {
+    color: var(--accent-color-hover);
+  }
+  button {
+    background-color: #f9f9f9; /* Light button default for light mode */
+    color: var(--text-color-dark);
+  }
+}
